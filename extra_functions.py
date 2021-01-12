@@ -16,7 +16,10 @@ def load_connear_model(modeldir,json_name="/Gmodel.json",weights_name="/Gmodel.h
     with CustomObjectScope({'GlorotUniform': glorot_uniform()}):
         model = model_from_json(loaded_model_json, custom_objects={'tf': tf})
     if name:
-        model.name = name
+        try:
+            model.name = name
+        except: # fix tensorflow 2 compatibility
+            model._name = name
     model.load_weights(modeldir + weights_name)
     
     if not crop: # for connecting the different modules
