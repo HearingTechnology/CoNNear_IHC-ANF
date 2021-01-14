@@ -7,7 +7,7 @@
 
 This repository contains a full notebook `connear_notebook.ipynb` for running and testing CoNNear<sub>IHC-ANF</sub>, a CNN model of the inner-hair-cell (IHC) and auditory-nerve (ANF) complex. The outputs of the CoNNear IHC-ANF model are compared against the reference model ([Verhulst et al. 2018, v1.1](https://github.com/HearingTechnology/Verhulstetal2018Model/tree/v1.1-master)). The inputs to the IHC-ANF models are provided by the transmission line (TL) cochlear model included in the reference model. The figures reported in the paper can be reproduced with this notebook, using the cochlea and IHC reference model simulations.
 
-A faster version of the notebook `connear_notebook_light.ipynb` is also provided that uses a CNN model of the whole auditory periphery. The cochlear outputs are simulated using the CoNNear cochlea module and given as inputs to the successive stages of CoNNear and Verhulst et al. models, thus reducing significantly the computational time required. 
+A faster version of the notebook `connear_notebook_light.ipynb` is also provided that uses a CNN model of the whole auditory periphery. The cochlear outputs are simulated using the [CoNNear cochlea](https://github.com/HearingTechnology/CoNNear_cochlea) module and given as inputs to the successive stages of CoNNear and Verhulst et al. models, thus reducing significantly the computational time required. 
 
 Both notebooks consist of different blocks corresponding to the different validation metrics of the paper. Each block can be adapted by the reader to run variations on the simulations that were described in the paper, or to simulate the responses to different stimuli.
 
