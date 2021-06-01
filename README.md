@@ -1,6 +1,6 @@
 ## CoNNear<sub>IHC-ANF</sub>: A convolutional neural-network model of the human inner-hair-cell and auditory-nerve-fiber complex
 
-**The supporting paper is titled "A neural-network framework for modelling auditory sensory cells and synapses" and can be found at [https://doi.org/10.1101/2020.11.25.388546](https://doi.org/10.1101/2020.11.25.388546).**
+**The supporting paper is titled "A convolutional neural-network framework for modelling auditory sensory cells and synapses" and can be found at [https://doi.org/10.1101/2020.11.25.388546](https://doi.org/10.1101/2020.11.25.388546).**
 
 > This work was funded with support from the EU Horizon 2020 programme under grant agreement No 678120 (RobSpear).
 
@@ -11,11 +11,11 @@ A faster version of the notebook `connear_notebook_light.ipynb` is also provided
 
 Both notebooks consist of different blocks corresponding to the different validation metrics of the paper. Each block can be adapted by the reader to run variations on the simulations that were described in the paper, or to simulate the responses to different stimuli.
 
-Besides the notebooks (both in `.html` and `.ipynb` format) the repository contains the trained CoNNear models (in the connear folder), the reference model's folder (Verhulstetal2018), an `extra_functions.py` python file, this `README.md` document, a license file and a TIMIT speech sentence (`sx228.wav`). 
+Besides the notebooks (both in `.html` and `.ipynb` format) the repository contains the trained CoNNear models (in the connear folder), the reference model's folder (Verhulstetal2018), an `extra_functions.py` python file, this `README.md` document, a license file and a TIMIT speech sentence (`sx228.wav`). An additional folder is also included (sourcedata) that contains the source data used in the figures of the paper.
 
-The CNN approximations of the [Dierich et al. (2020)](https://www.sciencedirect.com/science/article/pii/S2211124720308500) IHC model and the [Zilany et al. (2014)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3985897) ANF models are also included under the folders Dierich2020 and Zilany2014, respectively. The CNN models can easily be executed standalone, in the same fashion as our CoNNear models. An example notebook `generalisability_notebook.ipynb` is provided that reproduces the IHC-ANF evaluation results for the two CNN models and compares them to the responses of the reference Verhulst et al. IHC-ANF model.
+The CNN approximations of the [Dierich et al. (2020)](https://www.sciencedirect.com/science/article/pii/S2211124720308500) IHC model and the [Zilany et al. (2014)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3985897) ANF models are also included under the folders Dierich2020 and Zilany2014, respectively. The CNN models can easily be executed standalone, in the same fashion as our CoNNear models. An example notebook `supplementary_notebook.ipynb` is provided that reproduces the IHC-ANF evaluation results for the two CNN models and compares them to the responses of the reference Verhulst et al. IHC-ANF model.
 
-The reference Dierich2020 and Zilany2014 models are designed to be executed in Matlab, thus a jupyter notebook that can directly compare the results of the reference and the corresponding CNN models requires setting-up a Matlab backend for python (or a python implementation of the reference models). A jupyter notebook `generalisability_notebook-full.ipynb` is provided here that can run the two Matlab models, but requires a Matlab installation and the installation of the Matlab engine API for Python. Instructions on how to setup and run this notebook are provided at the end of this file.
+The reference Dierich2020 and Zilany2014 models are designed to be executed in Matlab, thus a jupyter notebook that can directly compare the results of the reference and the corresponding CNN models requires setting-up a Matlab backend for python (or a python implementation of the reference models). A jupyter notebook `supplementary_notebook-full.ipynb` is provided here that can run the two Matlab models, but requires a Matlab installation and the installation of the Matlab engine API for Python. Instructions on how to setup and run this notebook are provided at the end of this file.
 
 ## How to test the CoNNear model
 
@@ -47,7 +47,10 @@ To avoid solving the computationally-expensive TL model, the lighter version of 
 3. Run the code blocks from the "Import required python packages and functions" section of the notebook. All other code blocks are independent and can be run in any order. 
 
 4. Run the desired code blocks and/or adapt the various parameters to look at the performance for similar tasks. Each of the code blocks holds comments to clarify the steps or to define the choice of a parameter value. 
-    
+
+> If running the CoNNear models on Tensorflow v2, the following command can be added at the top of the jupyter notebook to speed up execution:
+> tf.compat.v1.disable_eager_execution()
+
 ## CoNNear IHC-ANF model specifications
 
 The CoNNear<sub>IHC-ANF</sub> model is comprised by four distinct AECNN models, one for the IHC stage and three for the three different ANF types. All models were trained on training sets comprised by 2310 speech sentences of the TIMIT speech dataset. Using the speech dataset as input to the reference model, the outputs of each stage were simulated and were used to train each model.
@@ -73,7 +76,7 @@ The notebooks were tested on a Windows laptop with an Intel Core i5-8300H CPU @ 
 
 The installation time for the Anaconda environment and dependencies is approximately 20 min. On our system, the run-time of the full notebook was 5 mins for all the blocks of the IHC stage and 20 mins for the ANF stage. The light version of the notebook was executed in ~5 mins in total.
 
-## How to setup the *generalisability_notebook-full* jupyter notebook
+## How to setup the *supplementary_notebook-full* jupyter notebook
 
 To run the notebook, a version of Matlab needs to be installed. Depending on your Matlab version a different python version might be required, we opted for version 3.6.1 for Matlab 2018a, but if you have a different one you might need to change the python version in the first command. The first step is to create a fresh conda environment and install all the required modules:
 

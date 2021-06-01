@@ -1,3 +1,11 @@
+# -*- coding: utf-8 -*-
+"""
+This script contains all the supplementary functions needed to execute the
+CoNNear IHC-ANF models in python.
+
+@author: Fotios Drakopoulos, UGent, 12/2020
+"""
+
 import numpy as np
 import tensorflow as tf
 import scipy.signal as sp_sig
@@ -8,6 +16,7 @@ from keras.utils import CustomObjectScope
 from keras.initializers import glorot_uniform
 
 def load_connear_model(modeldir,json_name="/Gmodel.json",weights_name="/Gmodel.h5",crop=1,name=[]):
+    # Function to load each CoNNear model using tensorflow and keras
     #print ("loading model from " + modeldir )
     json_file = open (modeldir + json_name, "r")
     loaded_model_json = json_file.read()
@@ -32,24 +41,26 @@ def load_connear_model(modeldir,json_name="/Gmodel.json",weights_name="/Gmodel.h
     #    model=Model(model.layers[0].input, model.layers[-1].output) # get cropped output
 
     return model
-    
+
 def rms (x, axis=0):
     # compute rms of a matrix
     sq = np.mean(np.square(x), axis = axis)
     return np.sqrt(sq)
 
 def wavfile_read(wavfile,fs=[]):
+    # read a wavfile and normalize it
     # if fs is given the signal is resampled to the given sampling frequency
     fs_signal, speech = scipy.io.wavfile.read(wavfile)
     if not fs:
         fs=fs_signal
 
-    if speech.dtype == 'int16':
-        nb_bits = 16 # -> 16-bit wav files
-    elif speech.dtype == 'int32':
-        nb_bits = 32 # -> 32-bit wav files
-    max_nb_bit = float(2 ** (nb_bits - 1))
-    speech = speech / (max_nb_bit + 1.0) # scale the signal to [-1.0,1.0]
+    if speech.dtype != 'float32':
+        if speech.dtype == 'int16':
+            nb_bits = 16 # -> 16-bit wav files
+        elif speech.dtype == 'int32':
+            nb_bits = 32 # -> 32-bit wav files
+        max_nb_bit = float(2 ** (nb_bits - 1))
+        speech = speech / (max_nb_bit + 1.0) # scale the signal to [-1.0,1.0]
 
     if fs_signal != fs :
         signalr = sp_sig.resample_poly(speech, fs, fs_signal)
@@ -57,3 +68,4 @@ def wavfile_read(wavfile,fs=[]):
         signalr = speech
 
     return signalr, fs
+
