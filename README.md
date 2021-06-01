@@ -95,6 +95,12 @@ After everything is installed, navigate to your MATLAB directory and install the
 If the setup was successful then the Matlab models can be executed within our jupyter notebook. Before running the notebook, make sure that you select the newly-created kernel in jupyter (Kernel > Change Kernel > evaluation_env).
 
 ----
+## Citing this repository
+Fotios Drakopoulos, Deepak Baby, & Sarah Verhulst (2021). HearingTechnology/CoNNear_IHC-ANF: A CNN model of the human IHC and ANF complex (CoNNear IHC-ANF) (Version v1.1). 
+[https://github.com/HearingTechnology/CoNNear_IHC-ANF](https://github.com/HearingTechnology/CoNNear_IHC-ANF).
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4889696.svg)](https://doi.org/10.5281/zenodo.4889696)
+
 For questions, please reach out to one of the corresponding authors
 
 * Fotios Drakopoulos: fotios.drakopoulos@ugent.be
