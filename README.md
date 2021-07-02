@@ -1,6 +1,7 @@
 ## CoNNear<sub>IHC-ANF</sub>: A convolutional neural-network model of the human inner-hair-cell and auditory-nerve-fiber complex
 
-**The supporting paper is titled "A convolutional neural-network framework for modelling auditory sensory cells and synapses" and can be found at [https://doi.org/10.1101/2020.11.25.388546](https://doi.org/10.1101/2020.11.25.388546).**
+The supporting paper can be found [here](https://www.nature.com/articles/s42003-021-02341-5) ([bioRxiv](https://www.biorxiv.org/content/10.1101/2020.11.25.388546v3)) and can be cited as:  
+Drakopoulos, F., Baby, D. & Verhulst, S. A convolutional neural-network framework for modelling auditory sensory cells and synapses. Commun Biol 4, 827 (2021). https://doi.org/10.1038/s42003-021-02341-5
 
 > This work was funded with support from the EU Horizon 2020 programme under grant agreement No 678120 (RobSpear).
 
@@ -95,13 +96,40 @@ After everything is installed, navigate to your MATLAB directory and install the
 If the setup was successful then the Matlab models can be executed within our jupyter notebook. Before running the notebook, make sure that you select the newly-created kernel in jupyter (Kernel > Change Kernel > evaluation_env).
 
 ----
-## Citing this repository
+## Citation
+If you use this code, please cite the supporting paper:
+
+Drakopoulos, F., Baby, D. & Verhulst, S. A convolutional neural-network framework for modelling auditory sensory cells and synapses. Commun Biol 4, 827 (2021). https://doi.org/10.1038/s42003-021-02341-5
+
+```BibTex
+@article{drakopoulos_convolutional_2021,
+	title = {A convolutional neural-network framework for modelling auditory sensory cells and synapses},
+	volume = {4},
+	issn = {2399-3642},
+	url = {http://www.nature.com/articles/s42003-021-02341-5},
+	doi = {10.1038/s42003-021-02341-5},
+	abstract = {Abstract
+            In classical computational neuroscience, analytical model descriptions are derived from neuronal recordings to mimic the underlying biological system. These neuronal models are typically slow to compute and cannot be integrated within large-scale neuronal simulation frameworks. We present a hybrid, machine-learning and computational-neuroscience approach that transforms analytical models of sensory neurons and synapses into deep-neural-network (DNN) neuronal units with the same biophysical properties. Our DNN-model architecture comprises parallel and differentiable equations that can be used for backpropagation in neuro-engineering applications, and offers a simulation run-time improvement factor of 70 and 280 on CPU or GPU systems respectively. We focussed our development on auditory neurons and synapses, and show that our DNN-model architecture can be extended to a variety of existing analytical models. We describe how our approach for auditory models can be applied to other neuron and synapse types to help accelerate the development of large-scale brain networks and DNN-based treatments of the pathological system.},
+	language = {en},
+	number = {1},
+	urldate = {2021-07-02},
+	journal = {Communications Biology},
+	author = {Drakopoulos, Fotios and Baby, Deepak and Verhulst, Sarah},
+	month = dec,
+	year = {2021},
+	pages = {827},
+}
+```
+
+This repository can also be cited separately:
+
 Fotios Drakopoulos, Deepak Baby, & Sarah Verhulst (2021). HearingTechnology/CoNNear_IHC-ANF: A CNN model of the human IHC and ANF complex (CoNNear IHC-ANF) (Version v1.1). 
 [https://github.com/HearingTechnology/CoNNear_IHC-ANF](https://github.com/HearingTechnology/CoNNear_IHC-ANF).
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4889696.svg)](https://doi.org/10.5281/zenodo.4889696)
 
-For questions, please reach out to one of the corresponding authors
+##
+For questions, please reach out to one of the corresponding authors:
 
 * Fotios Drakopoulos: fotios.drakopoulos@ugent.be
 * Deepak Baby: deepakbabycet@gmail.com
